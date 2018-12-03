@@ -1,0 +1,24 @@
+{
+  "name": "advent-of-code-2018-solutions",
+  "version": "1.0.0",
+  "description": "Madara's solutions to Advent of Code 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MadaraUchiha/advent-of-code-2018-solutions.git"
+  },
+  "author": "Madara Uchiha",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/MadaraUchiha/advent-of-code-2018-solutions/issues"
+  },
+  "homepage": "https://github.com/MadaraUchiha/advent-of-code-2018-solutions#readme",
+  "devDependencies": {
+    "@types/node": "^10.12.11",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.1"
+  }
+}
