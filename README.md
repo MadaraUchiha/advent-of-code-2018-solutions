@@ -7,6 +7,6 @@ Requirements: Node
 
 ```bash
 npm i
-npx ts-node dayN/partM
+npx ts-node src/dayN/partM
 # profit
 ```
