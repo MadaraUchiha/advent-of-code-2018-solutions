@@ -1,9 +1,9 @@
-import { day3Input } from "./input";
-import { processInput, flattenOnce } from "./utils";
+import { day3Input } from './input';
+import { flattenOnce, processInput } from './utils';
 
 export function day3Part1(input: string) {
   const processedInput = processInput(input);
-  const field = Array.from(Array(1000)).map(_ => Array.from(Array(1000)).map(_ => 0));
+  const field = Array.from(Array(1000)).map(_ => Array.from(Array(1000)).map(__ => 0));
 
   for (const claim of processedInput) {
     for (let col = claim.y; col < claim.y + claim.h; col++) {

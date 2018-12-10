@@ -1,9 +1,9 @@
-import { processInput, flattenOnce } from "./utils";
-import { day3Input } from "./input";
+import { day3Input } from './input';
+import { flattenOnce, processInput } from './utils';
 
 export function day3Part2(input: string) {
   const processedInput = processInput(input);
-  const field = Array.from(Array(1000)).map(_ => Array.from(Array(1000)).map(_ => [] as string[]));
+  const field = Array.from(Array(1000)).map(_ => Array.from(Array(1000)).map(__ => [] as string[]));
 
   for (const claim of processedInput) {
     for (let row = claim.y; row < claim.y + claim.h; row++) {
@@ -17,7 +17,8 @@ export function day3Part2(input: string) {
   const countDict: { [id: string]: number } = {};
   for (const col of field) {
     for (const row of col) {
-      if (row.length !== 1) { continue; } // If there's more than one ID here, there's overlap, so not interesting. If 0, no claim, not interesting.
+      // If there's more than one ID here, there's overlap, so not interesting. If 0, no claim, not interesting.
+      if (row.length !== 1) { continue; }
 
       const [id] = row;
       countDict[id] = (countDict[id] || 0) + 1;

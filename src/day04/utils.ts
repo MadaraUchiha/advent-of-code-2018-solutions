@@ -1,6 +1,6 @@
 export function processInput(input: string) {
   const lines = input.split('\n').sort();
-  const result = new Map<number, { date: Date, action: 'sleep' | 'wake' }[]>();
+  const result = new Map<number, Array<{ date: Date, action: 'sleep' | 'wake' }>>();
   let currentGuardId = 0;
 
   for (const line of lines) {
@@ -8,13 +8,13 @@ export function processInput(input: string) {
     if (!match) {
       throw new Error(`Regex does not match for ${line}`);
     }
-    const [_, timestamp, description] = match;
+    const [, timestamp, description] = match;
 
     const date = new Date(timestamp + 'Z');
 
     if (description.startsWith('Guard')) {
-      const [_, id] = description.split(' ');
-      currentGuardId = parseInt(id.replace('#', ''));
+      const [, id] = description.split(' ');
+      currentGuardId = parseInt(id.replace('#', ''), 10);
       continue;
     }
 
@@ -36,7 +36,7 @@ export function processInput(input: string) {
   return result;
 }
 
-export function sumHours(log: { date: Date, action: 'sleep' | 'wake' }[]) {
+export function sumHours(log: Array<{ date: Date, action: 'sleep' | 'wake' }>) {
   let result = 0;
   for (let i = 0; i < log.length; i += 2) {
     const sleepEntry = log[i];
@@ -47,8 +47,8 @@ export function sumHours(log: { date: Date, action: 'sleep' | 'wake' }[]) {
   return result;
 }
 
-export function findMostSleptMinute(log: { date: Date, action: 'sleep' | 'wake' }[]) {
-  let countDict: { [minute: number]: number } = {};
+export function findMostSleptMinute(log: Array<{ date: Date, action: 'sleep' | 'wake' }>) {
+  const countDict: { [minute: number]: number } = {};
 
   for (let i = 0; i < log.length; i += 2) {
     const sleepEntry = log[i];

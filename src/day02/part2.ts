@@ -1,4 +1,4 @@
-import { day2Input } from "./input";
+import { day2Input } from './input';
 
 export function day2Part2(input: string) {
   const processedInput = input.split('\n');
