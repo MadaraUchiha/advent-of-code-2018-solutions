@@ -2,7 +2,7 @@
  * The heuristic here being that it's unlikely that the message would be completed unless
  * at least `y` points are aligned.
  */
-export function hasConsequtive(points: Array<{ x: number; y: number }>, y: number) {
+export function hasConsecutive(points: Array<{ x: number; y: number }>, y: number) {
   points.sort(({ y: yA }, { y: yB }) => yA - yB);
   return points.some(point => {
     for (let i = 1; i <= y; i++) {
