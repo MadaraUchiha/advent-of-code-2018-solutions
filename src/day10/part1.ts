@@ -18,8 +18,6 @@ export function renderField(points: Array<{ x: number; y: number }>) {
   const maxX = Math.max(...points.map(({ x }) => x)) + 1;
   const maxY = Math.max(...points.map(({ y }) => y)) + 1;
 
-  console.log({ minX, minY, maxX, maxY });
-
   const translateX = (x: number) => x - minX;
   const translateY = (y: number) => y - minY;
 
